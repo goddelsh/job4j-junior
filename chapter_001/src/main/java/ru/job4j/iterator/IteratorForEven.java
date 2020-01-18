@@ -2,7 +2,7 @@ package ru.job4j.iterator;
 
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.stream.Collectors;
+import java.util.NoSuchElementException;
 
 public class IteratorForEven implements Iterator {
 
@@ -25,15 +25,14 @@ public class IteratorForEven implements Iterator {
                 .toArray();
     }
 
-    public void remove() {
-
-    }
-
     public boolean hasNext() {
         return index < inputArray.length;
     }
 
     public Object next() {
+        if (!(index < inputArray.length)) {
+            throw  new NoSuchElementException("no more elemnts");
+        }
         return inputArray[index++];
     }
 }
