@@ -9,27 +9,25 @@ public class Converter {
 
             private Iterator<Integer> currerntIterator;
 
+            private void checkCurrentIterator() {
+                while (it.hasNext()) {
+                    if (this.currerntIterator == null || !this.currerntIterator.hasNext()) {
+                        this.currerntIterator = it.next();
+                    } else {
+                        break;
+                    }
+                }
+            }
+
             @Override
             public boolean hasNext() {
-                while (it.hasNext()) {
-                    if (this.currerntIterator == null || !this.currerntIterator.hasNext()) {
-                        this.currerntIterator = it.next();
-                    } else {
-                        break;
-                    }
-                }
+                checkCurrentIterator();
                 return this.currerntIterator.hasNext();
             }
+
             @Override
             public Integer next() {
-                while (it.hasNext()) {
-                    if (this.currerntIterator == null || !this.currerntIterator.hasNext()) {
-                        this.currerntIterator = it.next();
-                    } else {
-                        break;
-                    }
-                }
-
+                checkCurrentIterator();
                 return this.currerntIterator.next();
             }
         };
