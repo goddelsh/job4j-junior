@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class MatrixIteratorTest {
 
-    private MatrixIterator it;
+    private Iterator it;
 
     @Before
     public void setUp() {

@@ -14,6 +14,10 @@ public class SimpleArray<E> implements Iterator<E> {
         this.inputArray = new Object[size];
     }
 
+    int getArraySize() {
+        return index;
+    }
+
     void add(E model) {
         this.inputArray[index++] = model;
     }

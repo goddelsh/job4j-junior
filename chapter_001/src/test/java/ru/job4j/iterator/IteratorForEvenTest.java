@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.is;
 
 public class IteratorForEvenTest {
 
-    private IteratorForEven it;
+    private Iterator it;
 
     @Before
     public void setUp() {
