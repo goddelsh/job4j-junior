@@ -1,6 +1,5 @@
 package ru.job4j.generics;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class SimpleArray<E> implements Iterator<E> {
