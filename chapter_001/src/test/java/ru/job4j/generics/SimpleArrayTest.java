@@ -47,26 +47,34 @@ public class SimpleArrayTest {
     public void hasNext() {
         SimpleArray<Integer> iteratorTest = new SimpleArray<>(10);
         iteratorTest.add(1);
-        iteratorTest.hasNext();
-        assertThat(iteratorTest.hasNext(), is(true));
-        iteratorTest.next();
-        iteratorTest.hasNext();
-        assertThat(iteratorTest.hasNext(), is(false));
+        iteratorTest.iterator().hasNext();
+        assertThat(iteratorTest.iterator().hasNext(), is(true));
+        iteratorTest.iterator().next();
+        iteratorTest.iterator().hasNext();
+        assertThat(iteratorTest.iterator().hasNext(), is(false));
 
     }
 
-
-    @Test
-    public void removeWithIterator() {
-        SimpleArray<Integer> iteratorTest = new SimpleArray<>(10);
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testExceptionWhenAddedBiggerThanInitSize() {
+        SimpleArray<Integer> iteratorTest = new SimpleArray<>(1);
         iteratorTest.add(1);
         iteratorTest.add(2);
-        iteratorTest.add(3);
-        iteratorTest.next();
-        iteratorTest.remove();
-        var result = iteratorTest.next();
-        assertThat(result, is(3));
     }
 
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testExceptionWhenGetMoreThanSize() {
+        SimpleArray<Integer> iteratorTest = new SimpleArray<>(1);
+        iteratorTest.add(1);
+        iteratorTest.get(1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testExceptionWhenSetInexMoreThanSize() {
+        SimpleArray<Integer> iteratorTest = new SimpleArray<>(1);
+        iteratorTest.add(1);
+        iteratorTest.set(1, 1);
+    }
 
 }

@@ -2,7 +2,7 @@ package ru.job4j.generics;
 
 import java.util.Iterator;
 
-public class SimpleArray<E> implements Iterator<E> {
+public class SimpleArray<E> implements Iterable<E> {
 
     private Object[] inputArray;
     private int index = 0;
@@ -18,14 +18,23 @@ public class SimpleArray<E> implements Iterator<E> {
     }
 
     void add(E model) {
+        if (!(index < this.inputArray.length)) {
+            throw new IndexOutOfBoundsException();
+        }
         this.inputArray[index++] = model;
     }
 
     void set(int index, E model) {
+        if ((index < 0) || (index >= this.index)) {
+            throw new IndexOutOfBoundsException();
+        }
         this.inputArray[index] = model;
     }
 
     E get(int index) {
+        if ((index < 0) || (index >= this.index)) {
+            throw new IndexOutOfBoundsException();
+        }
         return (E) this.inputArray[index];
     }
 
@@ -41,18 +50,20 @@ public class SimpleArray<E> implements Iterator<E> {
         return result;
     }
 
-    @Override
-    public void remove() {
-        this.remove(this.iteratorIndex - 1);
-    }
 
     @Override
-    public boolean hasNext() {
-        return iteratorIndex < index;
-    }
+    public Iterator<E> iterator() {
+        return new Iterator<E>() {
 
-    @Override
-    public E next() {
-        return (E) this.inputArray[this.iteratorIndex++];
+            @Override
+            public boolean hasNext() {
+                return iteratorIndex < index;
+            }
+
+            @Override
+            public E next() {
+                return (E) inputArray[iteratorIndex++];
+            }
+        };
     }
 }
