@@ -20,14 +20,6 @@ public class MatrixIteratorTest {
     }
 
     @Test
-    public void makeArrayFlat() {
-        var mit = (MatrixIterator) it;
-        var result = mit.makeArrayFlat(new int[][]{{1}, {3, 4}, {7}});
-        var expected = new int[]{1, 3, 4, 7};
-        assertThat(result, is(expected));
-    }
-
-    @Test
     public void hasNext() {
     }
 
