@@ -60,13 +60,6 @@ public class IteratorForEvenTest {
     }
 
 
-    @Test
-    public void getOnlyEvenElements() {
-        var inputArray = new int[]{1, 2, 3, 4};
-        var result = new IteratorForEven(inputArray).getOnlyEvenElements(inputArray);
-        var expected = new int[]{2, 4};
-        assertThat(result, is(expected));
-    }
 
     @Test
     public void hasNext() {

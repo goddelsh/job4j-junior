@@ -11,28 +11,31 @@ public class IteratorForEven implements Iterator {
 
 
     IteratorForEven(final int[] inputArray) {
-        this.inputArray = getOnlyEvenElements(inputArray);
+        this.inputArray = inputArray;
     }
 
 
-    int[] getOnlyEvenElements(final int[] inputArray) {
-        return Arrays
-                .stream(inputArray)
-                //boxing primitive type to equal object
-                .boxed()
-                .filter(el -> el % 2 == 0)
-                .mapToInt(el -> el)
-                .toArray();
-    }
 
     public boolean hasNext() {
-        return index < inputArray.length;
+        var result = false;
+        while (index < inputArray.length) {
+            if (inputArray[index] % 2 == 0) {
+                result = true;
+                break;
+            } else {
+                index++;
+            }
+        }
+        return result;
     }
 
     public Object next() {
-        if (!(index < inputArray.length)) {
-            throw  new NoSuchElementException("no more elemnts");
+        Integer result = null;
+        if (hasNext()) {
+            result = inputArray[index++];
+        } else {
+            throw  new NoSuchElementException();
         }
-        return inputArray[index++];
+        return result;
     }
 }
