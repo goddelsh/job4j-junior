@@ -12,16 +12,21 @@ public class DynamicLinkedContainer<E> implements Iterable<E>{
     private Node<E> last;
 
     void add(E value) {
-        Node<E> newLink = new Node<>(value);
-
-        LinkedList<String> object = new LinkedList<String>();
+       var exLast = last;
+       var newNode = new Node<E>(first, last, value);
+       last = newNode;
+       if (exLast == null) {
+           first = newNode;
+       } else{
+           exLast.next = newNode;
+       }
         this.size++;
         modCount++;
     }
 
     E get(int index) {
         Node<E> result = this.first;
-        for (int i = 0 ; i  < size - 1 ; i++) {
+        for (int i = 0 ; i  < index ; i++) {
             result = result.next;
         }
         return result.data;
@@ -68,9 +73,12 @@ public class DynamicLinkedContainer<E> implements Iterable<E>{
 
         E data;
         Node<E> next;
+        Node<E> prev;
 
-        Node(E data) {
+        Node(Node<E> next, Node<E> prev, E data) {
             this.data = data;
+            this.next = next;
+            this.prev = prev;
         }
     }
 }
