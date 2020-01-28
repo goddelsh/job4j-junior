@@ -2,15 +2,14 @@ package ru.job4j.list;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
-public class DynamicLinkedContainer<E> implements Iterable<E>{
+public class DynamicLinkedContainer<E> implements Iterable<E> {
 
     private int modCount, expectedModCount;
     private int size;
-    private Node<E> first;
-    private Node<E> last;
+    protected Node<E> first;
+    protected Node<E> last;
 
     void add(E value) {
        var exLast = last;
@@ -18,7 +17,7 @@ public class DynamicLinkedContainer<E> implements Iterable<E>{
        last = newNode;
        if (exLast == null) {
            first = newNode;
-       } else{
+       } else {
            exLast.next = newNode;
        }
         this.size++;
@@ -30,7 +29,7 @@ public class DynamicLinkedContainer<E> implements Iterable<E>{
             throw new NoSuchElementException();
         }
         Node<E> result = this.first;
-        for (int i = 0 ; i  < index ; i++) {
+        for (int i = 0; i < index; i++) {
             result = result.next;
         }
         return result.data;
@@ -69,7 +68,7 @@ public class DynamicLinkedContainer<E> implements Iterable<E>{
         };
     }
 
-    private static class Node<E> {
+    protected static class Node<E> {
 
         E data;
         Node<E> next;
