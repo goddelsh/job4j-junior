@@ -3,6 +3,7 @@ package ru.job4j.list;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 public class DynamicLinkedContainer<E> implements Iterable<E>{
 
@@ -25,6 +26,9 @@ public class DynamicLinkedContainer<E> implements Iterable<E>{
     }
 
     E get(int index) {
+        if (index >= size) {
+            throw new NoSuchElementException();
+        }
         Node<E> result = this.first;
         for (int i = 0 ; i  < index ; i++) {
             result = result.next;
@@ -55,16 +59,12 @@ public class DynamicLinkedContainer<E> implements Iterable<E>{
 
             @Override
             public E next() {
-                E result;
-
                 checkModCount();
 
-                if (hasNext()) {
-                    result = get(iteratorIndex++);
-                } else {
+                if (!hasNext()) {
                     throw new IndexOutOfBoundsException();
                 }
-                return result;
+                return get(iteratorIndex++);
             }
         };
     }
