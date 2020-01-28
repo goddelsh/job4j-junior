@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 public class DynamicLinkedContainer<E> implements Iterable<E> {
 
     private int modCount, expectedModCount;
-    private int size;
+    protected int size;
     protected Node<E> first;
     protected Node<E> last;
 
