@@ -34,12 +34,10 @@ public class MatrixIterator implements Iterator {
 
     @Override
     public Object next() {
-        Integer result = null;
-        if (hasNext()) {
-            result = innerArray[index][jagIndex++];
-        } else {
+        if (!hasNext()) {
             throw new NoSuchElementException();
         }
+        Integer result = innerArray[index][jagIndex++];
         return result;
     }
 }
