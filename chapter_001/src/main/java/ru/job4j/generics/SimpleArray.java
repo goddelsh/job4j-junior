@@ -1,13 +1,12 @@
 package ru.job4j.generics;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class SimpleArray<E> implements Iterable<E> {
 
     private Object[] inputArray;
     private int index = 0;
-    private int iteratorIndex = 0;
-
 
     SimpleArray(int size) {
         this.inputArray = new Object[size];
@@ -54,6 +53,7 @@ public class SimpleArray<E> implements Iterable<E> {
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
+            private int iteratorIndex = 0;
 
             @Override
             public boolean hasNext() {
@@ -62,6 +62,9 @@ public class SimpleArray<E> implements Iterable<E> {
 
             @Override
             public E next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
                 return (E) inputArray[iteratorIndex++];
             }
         };
