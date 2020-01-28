@@ -29,11 +29,10 @@ public class Converter {
             @Override
             public Integer next() {
                 Integer result;
-                if (hasNext()) {
-                    result = this.currerntIterator.next();
-                } else {
+                if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
+                result = this.currerntIterator.next();
                 return result;
             }
         };

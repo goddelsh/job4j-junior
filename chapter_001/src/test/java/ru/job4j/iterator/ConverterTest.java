@@ -98,4 +98,25 @@ public class ConverterTest {
         assertThat(it.next(), is(3));
         it.next();
     }
+
+    @Test
+    public void tenEmptyIteratorAndOneFull() {
+        Iterator<Integer> it1 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it2 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it3 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it4 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it5 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it6 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it7 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it8 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it9 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it10 = (new ArrayList<Integer>()).iterator();
+        Iterator<Integer> it11 = Arrays.asList(1, 2, 3).iterator();
+        Iterator<Iterator<Integer>> its = Arrays.asList(it1, it2, it3, it4, it5, it6, it7, it8, it9, it10, it11).iterator();
+        Converter iteratorOfIterators = new Converter();
+        it = iteratorOfIterators.convert(its);
+        assertThat(it.hasNext(), is(true));
+        assertThat(it.next(), is(1));
+    }
+
 }
