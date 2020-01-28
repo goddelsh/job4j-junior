@@ -12,11 +12,11 @@ public class SimpleQueue<T>  {
 
     public T poll() {
         T result;
-        while(!left.isEmpty()) {
+        while (!left.isEmpty()) {
             rigtt.push(left.poll());
         }
         result = rigtt.poll();
-        while(!rigtt.isEmpty()) {
+        while (!rigtt.isEmpty()) {
             left.push(rigtt.poll());
         }
         return result;
