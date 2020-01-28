@@ -30,12 +30,10 @@ public class IteratorForEven implements Iterator {
     }
 
     public Object next() {
-        Integer result = null;
-        if (hasNext()) {
-            result = inputArray[index++];
-        } else {
+        if (!hasNext()) {
             throw  new NoSuchElementException();
         }
+        Integer result = inputArray[index++];
         return result;
     }
 }
