@@ -24,4 +24,10 @@ public class SimpleSetTest {
         assertThat(simpleSet.add(1), is(false));
         assertThat(simpleSet.size(), is(3));
     }
+
+    @Test
+    public void whenAddedFourShouldFindIt() {
+        simpleSet.add(4);
+        assertThat(simpleSet.contains(4), is(true));
+    }
 }

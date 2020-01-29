@@ -17,16 +17,21 @@ public class SimpleSet<E> implements Iterable<E> {
     }
 
     public boolean add(E value) {
-        boolean result = true;
+        var result = !contains(value);
+        if (result) {
+            container.add(value);
+        }
+        return result;
+    }
+
+    public boolean contains(E value) {
+        boolean result = false;
         var it = container.iterator();
         while (it.hasNext()) {
             if (it.next().equals(value)) {
-                result = false;
+                result = true;
                 break;
             }
-        }
-        if (result) {
-            container.add(value);
         }
         return result;
     }
