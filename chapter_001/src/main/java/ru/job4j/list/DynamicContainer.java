@@ -33,6 +33,11 @@ public class DynamicContainer<E> implements  Iterable<E> {
         modCount++;
     }
 
+
+    public int size() {
+        return index;
+    }
+
     public E get(int index) {
         return (E) container[index];
     }
