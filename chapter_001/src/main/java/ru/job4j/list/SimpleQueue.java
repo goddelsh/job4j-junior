@@ -10,17 +10,26 @@ public class SimpleQueue<T>  {
         this.rigtt = new SimpleStack<T>();
     }
 
+
     public T poll() {
-        T result;
-        while (!left.isEmpty()) {
-            rigtt.push(left.poll());
-        }
-        result = rigtt.poll();
-        while (!rigtt.isEmpty()) {
-            left.push(rigtt.poll());
+        T result = null;
+        if (!left.isEmpty()) {
+            result = reduse(left.poll());
         }
         return result;
     }
+
+    private T reduse(T value) {
+        T result;
+        if (!left.isEmpty()) {
+            result = reduse(left.poll());
+            left.push(value);
+        } else {
+            result = value;
+        }
+        return result;
+    }
+
 
     public void push(T value) {
         left.push(value);
