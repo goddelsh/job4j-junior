@@ -7,9 +7,9 @@ import java.util.NoSuchElementException;
 public class DynamicLinkedContainer<E> implements Iterable<E> {
 
     private int modCount, expectedModCount;
-    protected int size;
-    protected Node<E> first;
-    protected Node<E> last;
+    private int size;
+    private Node<E> first;
+    private Node<E> last;
 
     void add(E value) {
        var exLast = last;
@@ -34,6 +34,18 @@ public class DynamicLinkedContainer<E> implements Iterable<E> {
         }
         return result.data;
     }
+
+    int size() {
+        return size;
+    }
+
+    E removeLast() {
+        E result = this.last.data;
+        last = last.prev;
+        size--;
+        return result;
+    }
+
 
     @Override
     public Iterator<E> iterator() {
@@ -68,7 +80,7 @@ public class DynamicLinkedContainer<E> implements Iterable<E> {
         };
     }
 
-    protected static class Node<E> {
+    private static class Node<E> {
 
         E data;
         Node<E> next;

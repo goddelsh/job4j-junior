@@ -2,14 +2,14 @@ package ru.job4j.list;
 
 public class SimpleStack<T> {
 
-    private final DynamicLinkedContainerExt<T> container;
+    private final DynamicLinkedContainer<T> container;
 
     public SimpleStack() {
-        container = new DynamicLinkedContainerExt<T>();
+        container = new DynamicLinkedContainer<T>();
     }
 
     public T poll() {
-        return container.get();
+        return container.removeLast();
     }
 
     public void push(T value) {
@@ -17,15 +17,7 @@ public class SimpleStack<T> {
     }
 
     public boolean isEmpty() {
-        return container.size > 0 ? false : true;
+        return container.size() > 0 ? false : true;
     }
 
-    private class DynamicLinkedContainerExt<T> extends DynamicLinkedContainer<T> {
-        public T get() {
-            T result = this.last.data;
-            last = last.prev;
-            size--;
-            return result;
-        }
-    }
 }
