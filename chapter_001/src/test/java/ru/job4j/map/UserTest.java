@@ -18,7 +18,7 @@ public class UserTest {
         User user1 = new User("user", 1, calendar);
         User user2 = new User("user",1, calendar);
 
-        assertThat(user1.hashCode(), is(user2.hashCode()));
+        assertThat(user1.equals(user2), is(true));
 
         Map<User, Object> map = new HashMap<User, Object>();
         map.put(user1, "first");
