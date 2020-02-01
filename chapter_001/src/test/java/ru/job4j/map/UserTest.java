@@ -14,9 +14,9 @@ public class UserTest {
 
     @Test
     public void addUserToMap() {
-        Calendar calendar = new GregorianCalendar(1900, 0 , 25);
+        Calendar calendar = new GregorianCalendar(1900, 0, 25);
         User user1 = new User("user", 1, calendar);
-        User user2 = new User("user",1, calendar);
+        User user2 = new User("user", 1, calendar);
 
         assertThat(user1.equals(user2), is(true));
 
