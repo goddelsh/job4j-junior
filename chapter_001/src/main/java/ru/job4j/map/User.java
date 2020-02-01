@@ -18,7 +18,10 @@ public class User {
 
     @Override
     public int hashCode() {
-        return this.name.hashCode() + children + birthday.hashCode();
+        int result = this.name.hashCode();
+        result = 31 * result + Integer.hashCode(children);
+        result = 31 * result + birthday.hashCode();
+        return result;
     }
 
     public boolean equals(Object obj) {
