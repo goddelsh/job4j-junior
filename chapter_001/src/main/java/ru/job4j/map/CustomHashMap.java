@@ -39,7 +39,7 @@ public class CustomHashMap<K, V> {
         return result;
     }
 
-    boolean insert(K key, V value) {
+    public boolean insert(K key, V value) {
         boolean result = false;
         int index = getIndex(getKeyHash(key));
         if (table[index] == null) {
@@ -59,7 +59,7 @@ public class CustomHashMap<K, V> {
         return result == null ? null : result.value;
     }
 
-    boolean delete(K key) {
+    public boolean delete(K key) {
         boolean result = false;
         var index = getIndex(getKeyHash(key));
         if (table[index] != null) {
