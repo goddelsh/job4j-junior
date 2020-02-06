@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomHashMap.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">chapter_001</a> &gt; <a href="index.source.html" class="el_package">ru.job4j.map</a> &gt; <span class="el_source">CustomHashMap.java</span></div><h1>CustomHashMap.java</h1><pre class="source lang-java linenums">package ru.job4j.map;
+
+
+
+import ru.job4j.list.utils.Node;
+
+import java.util.Arrays;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+
+public class CustomHashMap&lt;K, V&gt; {
+
+    private int modCount, expectedModCount;
+
+    private Node&lt;K, V&gt;[] table;
+
+<span class="fc" id="L17">    private final int defaultTableSize = 16;</span>
+
+<span class="fc" id="L19">    private final float loadFactor = 0.75f;</span>
+
+<span class="fc" id="L21">    int elementCount = 0;</span>
+
+<span class="fc" id="L23">    public CustomHashMap() {</span>
+<span class="fc" id="L24">        table = new Node[defaultTableSize];</span>
+<span class="fc" id="L25">    }</span>
+
+    public int getElementCount() {
+<span class="fc" id="L28">        return elementCount;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L33">        String result = &quot;&quot;;</span>
+<span class="fc" id="L34">        var it = this.iterator();</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        while (it.hasNext()) {</span>
+<span class="fc" id="L36">            var el = it.next();</span>
+<span class="fc" id="L37">            result += el.key + &quot;=&quot; + el.value + System.lineSeparator();</span>
+<span class="fc" id="L38">        }</span>
+<span class="fc" id="L39">        return result;</span>
+    }
+
+    public boolean insert(K key, V value) {
+<span class="fc" id="L43">        boolean result = false;</span>
+<span class="fc" id="L44">        int index = getIndex(getKeyHash(key));</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (table[index] == null) {</span>
+<span class="fc" id="L46">            table[index] = new Node&lt;&gt;(key, value);</span>
+<span class="fc" id="L47">            result = true;</span>
+<span class="fc" id="L48">            elementCount++;</span>
+<span class="fc" id="L49">            modCount++;</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if ((float) elementCount / table.length &gt; loadFactor) {</span>
+<span class="fc" id="L51">                this.resize();</span>
+            }
+        }
+<span class="fc" id="L54">        return result;</span>
+    }
+
+    V get(K key) {
+<span class="nc" id="L58">        Node&lt;K, V&gt; result = table[getIndex(getKeyHash(key))];</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        return result == null ? null : result.value;</span>
+    }
+
+    public boolean delete(K key) {
+<span class="fc" id="L63">        boolean result = false;</span>
+<span class="fc" id="L64">        var index = getIndex(getKeyHash(key));</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (table[index] != null) {</span>
+<span class="fc" id="L66">            table[index] = null;</span>
+<span class="fc" id="L67">            result = true;</span>
+<span class="fc" id="L68">            elementCount--;</span>
+        }
+<span class="fc" id="L70">        modCount++;</span>
+
+<span class="fc" id="L72">        return result;</span>
+    }
+
+    private int getKeyHash(K key) {
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        return (key == null) ? 0 : key.hashCode();</span>
+    }
+
+    private int getIndex(int hash) {
+<span class="fc" id="L80">        return (table.length - 1) &amp; hash;</span>
+    }
+
+
+    private void resize() {
+<span class="fc" id="L85">        table = Arrays.copyOf(table, table.length &lt;&lt; 1);</span>
+<span class="fc" id="L86">    }</span>
+
+
+    public Iterator&lt;Node&lt;K, V&gt;&gt; iterator() {
+<span class="fc" id="L90">        expectedModCount = modCount;</span>
+<span class="fc" id="L91">        return new Iterator&lt;Node&lt;K, V&gt;&gt;() {</span>
+<span class="fc" id="L92">            int index = 0;</span>
+
+            private void checkMod() {
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">                if (expectedModCount != modCount) {</span>
+<span class="nc" id="L96">                    throw new ConcurrentModificationException();</span>
+                }
+<span class="fc" id="L98">            }</span>
+
+
+            public boolean hasNext() {
+<span class="fc" id="L102">                var result = false;</span>
+<span class="fc" id="L103">                checkMod();</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">                while (index &lt; table.length) {</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">                    if (table[index] != null) {</span>
+<span class="fc" id="L106">                        result = true;</span>
+<span class="fc" id="L107">                        break;</span>
+                    } else {
+<span class="fc" id="L109">                        index++;</span>
+                    }
+                }
+<span class="fc" id="L112">                return result;</span>
+            }
+
+            public Node next() {
+<span class="fc" id="L116">                checkMod();</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">                if (!hasNext()) {</span>
+<span class="nc" id="L118">                    throw new IndexOutOfBoundsException();</span>
+                }
+<span class="fc" id="L120">                return table[index++];</span>
+            }
+        };
+    }
+
+    public class Node&lt;K, V&gt; {
+        K key;
+        V value;
+
+<span class="fc" id="L129">        public Node(K key, V value) {</span>
+<span class="fc" id="L130">            this.key = key;</span>
+<span class="fc" id="L131">            this.value = value;</span>
+<span class="fc" id="L132">        }</span>
+
+        public K getKey() {
+<span class="nc" id="L135">            return key;</span>
+        }
+
+        public V getValue() {
+<span class="nc" id="L139">            return value;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

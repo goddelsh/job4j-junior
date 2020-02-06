@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MatrixIterator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">chapter_001</a> &gt; <a href="index.source.html" class="el_package">ru.job4j.iterator</a> &gt; <span class="el_source">MatrixIterator.java</span></div><h1>MatrixIterator.java</h1><pre class="source lang-java linenums">package ru.job4j.iterator;
+
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+
+public class MatrixIterator implements Iterator {
+
+    private final int[][] innerArray;
+<span class="fc" id="L12">    private int index = 0;</span>
+<span class="fc" id="L13">    private int jagIndex = 0;</span>
+
+<span class="fc" id="L15">    MatrixIterator(final int[][] inputArray) {</span>
+<span class="fc" id="L16">        this.innerArray = inputArray;</span>
+<span class="fc" id="L17">    }</span>
+
+
+    @Override
+    public boolean hasNext() {
+<span class="fc" id="L22">        var result = false;</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        while (index &lt; innerArray.length) {</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">            if (jagIndex &lt; innerArray[index].length) {</span>
+<span class="fc" id="L25">                result = true;</span>
+<span class="fc" id="L26">                break;</span>
+            } else {
+<span class="fc" id="L28">                index++;</span>
+<span class="fc" id="L29">                jagIndex = 0;</span>
+            }
+        }
+<span class="fc" id="L32">        return  result;</span>
+    }
+
+    @Override
+    public Object next() {
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (!hasNext()) {</span>
+<span class="nc" id="L38">            throw new NoSuchElementException();</span>
+        }
+<span class="fc" id="L40">        Integer result = innerArray[index][jagIndex++];</span>
+<span class="fc" id="L41">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

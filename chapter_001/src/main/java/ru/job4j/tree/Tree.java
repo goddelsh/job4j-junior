@@ -1,5 +1,6 @@
 package ru.job4j.tree;
 
+import javax.swing.text.html.HTMLDocument;
 import java.util.*;
 
 
@@ -16,7 +17,7 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
     public boolean add(E parent, E child) {
         var result = false;
         var parentNode = this.findBy(parent);
-        if(!parentNode.isEmpty()) {
+        if (!parentNode.isEmpty() && !(!findBy(child).isEmpty() && parentNode.get().leaves().contains(findBy(child).get()))) {
             parentNode.get().add(new Node<E>(child));
             result = true;
         }
@@ -45,16 +46,22 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
     public Iterator<E> iterator() {
         return new Iterator<E>() {
 
-            Queue<Node<E>> data = new LinkedList<>();
+            Queue<Node<E>> data = new LinkedList<Node<E>>(List.of(root));
+
 
             @Override
             public boolean hasNext() {
-                return false;
+                return data.size() > 0 ? true : false;
             }
 
             @Override
             public E next() {
-                return null;
+                E result = null;
+                if(!hasNext()) {
+
+                }
+
+                return result;
             }
         };
     }
