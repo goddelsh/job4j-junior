@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="089dfe00-2d88-46e7-b8db-20d43fe1022b" name="Default Changelist" comment="equals check">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/tree/TreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/tree/TreeTest.java" afterDir="false" />
     </list>
@@ -19,13 +20,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
+            <state relative-caret-position="211">
+              <caret line="45" column="14" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#219#220#0" expanded="true" />
+                <element signature="e#265#266#0" expanded="true" />
+                <element signature="e#1293#1302#0" expanded="true" />
                 <element signature="e#1380#1381#0" expanded="true" />
                 <element signature="e#1449#1450#0" expanded="true" />
               </folding>
@@ -36,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/LinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2425">
+            <state relative-caret-position="825">
               <caret line="120" column="11" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
             </state>
           </provider>
@@ -45,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/Queue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2600">
+            <state relative-caret-position="825">
               <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
             </state>
           </provider>
@@ -54,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/Iterator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
+            <state relative-caret-position="675">
               <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
             </state>
           </provider>
@@ -63,44 +67,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="375">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+              <folding>
+                <element signature="e#417#418#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/tree/TreeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="1250">
+              <caret line="60" column="38" lean-forward="true" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/Optional.java">
+        <entry file="file://$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/set/SimpleSetTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2800">
-              <caret line="147" selection-start-line="147" selection-end-line="147" />
+            <state relative-caret-position="100">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/TreeSet.java">
+        <entry file="file://$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/map/CustomHashMapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3750">
-              <caret line="180" column="37" selection-start-line="180" selection-start-column="37" selection-end-line="180" selection-end-column="37" />
+            <state relative-caret-position="-1425">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/NavigableSet.java">
+        <entry file="file://$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/list/DynamicContainerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3850">
-              <caret line="187" column="15" selection-start-line="187" selection-start-column="15" selection-end-line="187" selection-end-column="15" />
+            <state relative-caret-position="150">
+              <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -108,7 +115,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/NavigableMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1575">
+            <state relative-caret-position="825">
               <caret line="96" column="17" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
             </state>
           </provider>
@@ -122,8 +129,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/tree/TreeTest.java" />
+        <option value="$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Node.java" />
         <option value="$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Tree.java" />
+        <option value="$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/tree/TreeTest.java" />
       </list>
     </option>
   </component>
@@ -134,7 +142,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -145,6 +153,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,23 +238,62 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="job4j" type="462c0819:PsiDirectoryNode" />
+              <item name="list" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="job4j-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="job4j-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="chapter_001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job4j" type="462c0819:PsiDirectoryNode" />
+              <item name="map" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="job4j-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="job4j-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="chapter_001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job4j" type="462c0819:PsiDirectoryNode" />
+              <item name="set" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="job4j-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="job4j-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="chapter_001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="job4j" type="462c0819:PsiDirectoryNode" />
               <item name="tree" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ru.job4j.tree" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -259,7 +307,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TreeTest">
+  <component name="RunManager" selected="JUnit.TreeTest.iterator">
     <configuration name="TreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chapter_001" />
       <extension name="coverage">
@@ -271,6 +319,22 @@
       <option name="PACKAGE_NAME" value="ru.job4j.tree" />
       <option name="MAIN_CLASS_NAME" value="ru.job4j.tree.TreeTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TreeTest.iterator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chapter_001" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.job4j.tree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.job4j.tree" />
+      <option name="MAIN_CLASS_NAME" value="ru.job4j.tree.TreeTest" />
+      <option name="METHOD_NAME" value="iterator" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -338,9 +402,11 @@
       <item itemvalue="JUnit.TreeTest.when6ElAndcomeNotUniq" />
       <item itemvalue="JUnit.TreeTest.when6ElFindLastThen6" />
       <item itemvalue="Maven.junior-course [clean,install]" />
+      <item itemvalue="JUnit.TreeTest.iterator" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TreeTest.iterator" />
         <item itemvalue="JUnit.TreeTest" />
         <item itemvalue="JUnit.TreeTest.when6ElAndcomeNotUniq" />
         <item itemvalue="JUnit.TreeTest.when6ElFindLastThen6" />
@@ -358,23 +424,12 @@
       <option name="presentableId" value="Default" />
       <updated>1580964066825</updated>
       <workItem from="1580964069182" duration="5491000" />
-      <workItem from="1580986270005" duration="1116000" />
+      <workItem from="1580986270005" duration="2233000" />
+      <workItem from="1581053561877" duration="2029000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TreeTest_when6ElAndcomeNotUniq - 2020.02.06 at 10h 39m 04s.xml">
-      <configuration name="TreeTest.when6ElAndcomeNotUniq" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TreeTest - 2020.02.06 at 10h 39m 07s.xml">
-      <configuration name="TreeTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TreeTest_when6ElAndcomeNotUniq - 2020.02.06 at 10h 42m 03s.xml">
-      <configuration name="TreeTest.when6ElAndcomeNotUniq" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TreeTest_when6ElFindLastThen6 - 2020.02.06 at 10h 42m 06s.xml">
-      <configuration name="TreeTest.when6ElFindLastThen6" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TreeTest - 2020.02.06 at 10h 42m 38s.xml">
       <configuration name="TreeTest" configurationId="JUnit" />
     </history-entry>
@@ -393,15 +448,26 @@
     <history-entry file="TreeTest - 2020.02.06 at 10h 44m 40s.xml">
       <configuration name="TreeTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TreeTest_iterator - 2020.02.07 at 11h 09m 40s.xml">
+      <configuration name="TreeTest.iterator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TreeTest_iterator - 2020.02.07 at 11h 09m 45s.xml">
+      <configuration name="TreeTest.iterator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TreeTest_iterator - 2020.02.07 at 11h 10m 19s.xml">
+      <configuration name="TreeTest.iterator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TreeTest_iterator - 2020.02.07 at 11h 10m 45s.xml">
+      <configuration name="TreeTest.iterator" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6607000" />
+    <option name="totallyTimeSpent" value="9753000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -410,7 +476,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -448,53 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Tree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1380#1381#0" expanded="true" />
-            <element signature="e#1449#1450#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2425">
-          <caret line="120" column="11" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2600">
-          <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/Iterator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/tree/TreeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/Optional.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2800">
@@ -516,10 +535,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding>
+            <element signature="e#417#418#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/NavigableMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
+        <state relative-caret-position="825">
           <caret line="96" column="17" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter_001/src/main/java/ru/job4j/tree/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="45" column="14" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+            <element signature="e#1293#1302#0" expanded="true" />
+            <element signature="e#1380#1381#0" expanded="true" />
+            <element signature="e#1449#1450#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/Iterator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$JAVA_HOME$/lib/src.zip!/java.base/java/util/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="120" column="11" selection-start-line="120" selection-start-column="11" selection-end-line="120" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/set/SimpleSetTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/map/CustomHashMapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1425">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/list/DynamicContainerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chapter_001/src/test/java/ru/job4j/tree/TreeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1250">
+          <caret line="60" column="38" lean-forward="true" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
         </state>
       </provider>
     </entry>

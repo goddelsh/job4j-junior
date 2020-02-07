@@ -57,10 +57,13 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
             @Override
             public E next() {
                 E result = null;
-                if(!hasNext()) {
-
+                if(hasNext()) {
+                    Node<E> node = data.poll();
+                    result = node.getValue();
+                    for (Node<E> child : node.leaves()) {
+                        data.offer(child);
+                    }
                 }
-
                 return result;
             }
         };
