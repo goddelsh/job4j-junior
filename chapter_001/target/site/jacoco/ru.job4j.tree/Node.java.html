@@ -16,16 +16,20 @@ public class Node&lt;E extends Comparable&lt;E&gt;&gt; {
 <span class="fc" id="L16">        this.value = value;</span>
 <span class="fc" id="L17">    }</span>
 
+    public E getValue() {
+<span class="fc" id="L20">        return value;</span>
+    }
+
     public void add(Node&lt;E&gt; child) {
-<span class="fc" id="L20">        this.children.add(child);</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L24">        this.children.add(child);</span>
+<span class="fc" id="L25">    }</span>
 
     public List&lt;Node&lt;E&gt;&gt; leaves() {
-<span class="fc" id="L24">        return this.children;</span>
+<span class="fc" id="L28">        return this.children;</span>
     }
 
     public boolean eqValue(E that) {
-<span class="fc bfc" id="L28" title="All 2 branches covered.">        return this.value.compareTo(that) == 0;</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        return this.value.compareTo(that) == 0;</span>
 
     }
 }

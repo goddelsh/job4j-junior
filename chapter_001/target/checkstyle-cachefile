@@ -1,4 +1,4 @@
-#Thu Feb 06 09:54:53 UZT 2020
+#Fri Feb 07 12:25:24 UZT 2020
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\map\\CustomHashMap.java=1580964000296
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\generics\\UserStoreTest.java=1580964000302
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\iterator\\ConverterTest.java=1580964000302
@@ -15,7 +15,7 @@ E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\map\\User
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\generics\\User.java=1580964000289
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\generics\\SimpleArrayTest.java=1580964000300
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\generics\\AbstractStore.java=1580964000287
-E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\tree\\TreeTest.java=1580964000308
+E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\tree\\TreeTest.java=1581060292356
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\set\\SimpleSet.java=1580964000297
 configuration*?=A85997C6931E3D791843C38FF52F8ECD12691E85
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\list\\SimpleArrayListTest.java=1580964000306
@@ -29,8 +29,8 @@ E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\generics\
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\generics\\RoleStore.java=1580964000288
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\list\\DynamicLinkedContainerTest.java=1580964000305
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\list\\NodeCheckerTest.java=1580964000306
-E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\tree\\Tree.java=1580964890359
-E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\tree\\Node.java=1580964000298
+E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\tree\\Tree.java=1581060321448
+E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\tree\\Node.java=1581055410645
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\test\\java\\ru\\job4j\\map\\CustomHashMapTest.java=1580964000307
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\list\\DynamicContainer.java=1580964000292
 E\:\\workspace\\job4j-junior\\chapter_001\\src\\main\\java\\ru\\job4j\\generics\\UserStore.java=1580964000289
