@@ -11,27 +11,28 @@ public class EmailCombain {
         List<User> result = new ArrayList<User>();
        // User referingUser = null;
 
-        for(User user : users) {
-            for (User referingUser : users) {
-                if (emailsEqual(referingUser.getEmails(), user.getEmails())) {
-                    referingUser.getEmails().addAll(user.getEmails());
-                } else {
-                    result.add(referingUser);
+        int fast = 0;
+        int slow = 0;
+        while (slow < users.size()) {
+            if (fast == slow) {
+                fast++;
+            } else if(fast >= users.size()) {
+                fast = 0;
+                result.add(users.get(slow));
+                slow++;
+            } else {
+                if (emailsEqual(users.get(slow).getEmails(), users.get(fast).getEmails())) {
+                    if (slow < fast) {
+                        users.get(slow).getEmails().addAll(users.get(fast).getEmails());
+                    } else {
+                        users.get(fast).getEmails().addAll(users.get(slow).getEmails());
+                        slow++;
+                    }
                 }
+                fast++;
             }
-//            if (referingUser == null) {
-//                referingUser = user;
-//                result.add(referingUser);
-//                continue;
-//            }else{
-//                if (emailsEqual(referingUser.getEmails(), user.getEmails())) {
-//                    referingUser.getEmails().addAll(user.getEmails());
-//                } else {
-//                    referingUser = user;
-//                    result.add(referingUser);
-//                }
-//            }
         }
+
         return result;
     }
 
