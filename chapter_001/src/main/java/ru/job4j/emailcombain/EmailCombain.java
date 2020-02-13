@@ -1,35 +1,33 @@
 package ru.job4j.emailcombain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class EmailCombain {
     public List<User> combain(List<User> users) {
         List<User> result = new ArrayList<User>();
-       // User referingUser = null;
 
-        int fast = 0;
-        int slow = 0;
-        while (slow < users.size()) {
-            if (fast == slow) {
-                fast++;
-            } else if(fast >= users.size()) {
-                fast = 0;
-                result.add(users.get(slow));
-                slow++;
-            } else {
-                if (emailsEqual(users.get(slow).getEmails(), users.get(fast).getEmails())) {
-                    if (slow < fast) {
-                        users.get(slow).getEmails().addAll(users.get(fast).getEmails());
-                    } else {
-                        users.get(fast).getEmails().addAll(users.get(slow).getEmails());
-                        slow++;
-                    }
+        Set<Integer> ignoreList = new HashSet<>();
+
+        while (ignoreList.size() < users.size()) {
+            for (int i = 0; i < users.size(); i++) {
+                if (!checkelementIntList(users.get(i), result)) {
+                    result.add(users.get(i));
+                } else {
+                    ignoreList.add(i);
                 }
-                fast++;
+            }
+        }
+        return result;
+    }
+
+    private boolean checkelementIntList(User user, List<User> users) {
+        var result = false;
+        for (User el : users) {
+            if (emailsEqual(el.getEmails(), user.getEmails())) {
+                Set<String> emails = new HashSet(el.getEmails());
+                emails.addAll(user.getEmails());
+                el.setEmails(new ArrayList<>(emails));
+                result = true;
             }
         }
 
@@ -38,36 +36,37 @@ public class EmailCombain {
 
     private boolean emailsEqual(List<String> left, List<String> right) {
         var result = false;
-        Collections.sort(left, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.length() - o2.length();
-            }
-        });
-        Collections.sort(right, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.length() - o2.length();
-            }
-        });
+        Collections.sort(left, new StringLengthComparator());
+        Collections.sort(right, new StringLengthComparator());
         var leftIndex = 0;
         var rightIndex = 0;
-        while(leftIndex < left.size() && rightIndex <right.size()) {
+        while (leftIndex < left.size()) {
             if (left.get(leftIndex).length() < right.get(rightIndex).length()) {
                 leftIndex++;
-            }else if (left.get(leftIndex).length() > right.get(rightIndex).length()) {
+            } else if (left.get(leftIndex).length() > right.get(rightIndex).length()) {
                 rightIndex++;
-            }else{
+            } else {
                 if (left.get(leftIndex).equals(right.get(rightIndex))) {
                     result = true;
                     break;
-                }else{
-                    leftIndex++;
+                } else {
                     rightIndex++;
                 }
+            }
+            if (rightIndex >= right.size()) {
+                rightIndex = 0;
+                leftIndex++;
             }
         }
 
         return result;
+    }
+
+
+    private class StringLengthComparator implements Comparator<String> {
+        @Override
+        public int compare(String o1, String o2) {
+            return o1.length() - o2.length();
+        }
     }
 }

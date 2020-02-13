@@ -6,9 +6,6 @@ public class User {
     private String name;
     private List<String> emails;
 
-    public User() {
-
-    }
 
     public User(String name, List<String> emails) {
         this.name = name;
@@ -30,4 +27,5 @@ public class User {
     public void setEmails(List<String> emails) {
         this.emails = emails;
     }
+
 }
