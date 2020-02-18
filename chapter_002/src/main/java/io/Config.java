@@ -25,11 +25,10 @@ public class Config {
     void pushValues(String line) {
         if (!line.startsWith("#") && line.indexOf("=") > 0) {
             var entry = line.split("=");
-            if (entry.length == 2) {
-                values.put(entry[0], entry[1]);
-            } else {
+            if (entry.length != 2) {
                 throw new IllegalStateException("Format exception");
             }
+            values.put(entry[0], entry[1]);
         }
     }
 
