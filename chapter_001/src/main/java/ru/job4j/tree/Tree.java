@@ -17,25 +17,12 @@ public class Tree<E extends Comparable<E>> implements SimpleTree<E> {
     public boolean add(E parent, E child) {
         var result = false;
         var parentNode = this.findBy(parent);
-        if (!parentNode.isEmpty() && checkUniq(child)) {
+        if (!parentNode.isEmpty() && findBy(child).isEmpty()) {
             parentNode.get().add(new Node<E>(child));
             result = true;
         }
         return result;
     }
-
-    private boolean checkUniq(E child) {
-        var result = true;
-        var it = this.iterator();
-        while (it.hasNext()) {
-            if (it.next().equals(child)) {
-                result = false;
-                break;
-            }
-        }
-        return result;
-    }
-
 
     @Override
     public Optional<Node<E>> findBy(E value) {
