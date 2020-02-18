@@ -22,7 +22,7 @@ public class Analize {
                 }
                 slow++;
             } else if (previous.get(slow).getId() > current.get(fast).getId() && slow <= fast) {
-                result.setDeleted(result.getDeleted() + 1);
+                result.setAdded(result.getAdded() + 1);
                 slow++;
             } else {
                 fast++;
