@@ -20,13 +20,13 @@ public class SearchTest {
     @Test
     public void files() throws  Exception {
         var file = temporaryFolder.newFolder("grandparent", "parent", "child");
-        var firstFile = File.createTempFile("temp",".txt",file);
-        var secondFile = File.createTempFile("server",".log",file.getParentFile());
-        var thirdFile = File.createTempFile("server",".txt",file.getParentFile());
-        var fourthFile = File.createTempFile("ssss",".rar",file.getParentFile().getParentFile());
+        var firstFile = File.createTempFile("temp", ".txt", file);
+        var secondFile = File.createTempFile("server", ".log", file.getParentFile());
+        var thirdFile = File.createTempFile("server", ".txt", file.getParentFile());
+        var fourthFile = File.createTempFile("ssss", ".rar", file.getParentFile().getParentFile());
 
         Search search = new Search();
-        var result = search.files(file.getParentFile().getParentFile().getPath(), List.of(".txt",".rar"));
+        var result = search.files(file.getParentFile().getParentFile().getPath(), List.of(".txt", ".rar"));
         assertThat(result.size(), is(3));
         assertThat(result.get(0), is(fourthFile));
     }

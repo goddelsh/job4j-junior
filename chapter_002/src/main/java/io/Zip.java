@@ -38,9 +38,9 @@ public class Zip {
     }
 
     private boolean checkExcludeList(File file) {
-        var result= true;
+        var result = true;
         for (String mask : this.excluded) {
-            if( file.getName().matches(mask.replace(".", "\\.").replace("*", ".*"))) {
+            if (file.getName().matches(mask.replace(".", "\\.").replace("*", ".*"))) {
                 result = false;
                 break;
             }
@@ -61,7 +61,7 @@ public class Zip {
                 excluded = ++index < args.length ? List.of(args[index++].split(",")) : new ArrayList<>();
             } else if (args[index].equals("-o")) {
                 target = ++index < args.length ? args[index++] : "";
-            }else{
+            } else {
                 index++;
             }
         }
