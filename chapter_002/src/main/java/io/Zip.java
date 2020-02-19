@@ -14,7 +14,7 @@ public class Zip {
     private String target;
 
     public Zip(List<String> excluded, String path, String target) {
-        this.excluded = excluded;
+        this.excluded = excluded == null ? new ArrayList<>() : excluded;
         this.path = path;
         this.target = target;
     }
