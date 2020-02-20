@@ -21,7 +21,7 @@ public class ConfigTest {
         File file = temporaryFolder.newFile("log_with_comments.log");
         FileWriter fw = new FileWriter(file);
 
-        fw.write("#test1=1\n");
+        fw.write("###value=1\n");
         fw.write("#test2=2\n");
         fw.write("\n");
         fw.write("#test=test\n");
@@ -29,7 +29,7 @@ public class ConfigTest {
 
         Config config = new Config(file.getPath());
         config.load();
-        assertNull(config.value("test"));
+        assertNull(config.value("value"));
 
     }
 
