@@ -6,10 +6,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.core.Is.is;
@@ -23,6 +26,7 @@ public class ConsoleChatTest {
     @Test
     public void consoleChatWithAnswers() throws Exception {
         var file = temporaryFolder.newFile("answers.txt");
+        var log = temporaryFolder.newFile("log.txt");
         FileWriter fw = new FileWriter(file);
 
         fw.write("Who\n");
@@ -33,10 +37,16 @@ public class ConsoleChatTest {
         TestInput input = new TestInput();
         TestOutput output = new TestOutput();
         input.setPhrase(List.of("1", "стоп", "2", "продолжить", "3", "закончить", "4"));
-        new ConsoleChat(file.getPath(), input, output).init();
+        new ConsoleChat(file.getPath(), log.getPath(), input, output).init();
 
 
         assertThat(output.getLine().size(), is(2));
+
+        try (BufferedReader logResult = new BufferedReader(new FileReader(log))) {
+            var result = logResult.lines().collect(Collectors.toList());
+            assertThat(result.size(), is(8));
+        }
+
 
     }
 

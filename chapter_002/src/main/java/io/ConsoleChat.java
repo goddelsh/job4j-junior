@@ -3,8 +3,7 @@ package io;
 import io.utils.Input;
 import io.utils.Output;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,46 +16,60 @@ public class ConsoleChat {
     private final String exit = "закончить";
 
     private Input reader;
-    private Output printer;
+    private Output writer;
+    private File logFile;
 
-    private List<String> dictionary = new ArrayList<>();
+
+    private List<String> dictionary;
     private final Random rand = new Random();
 
-    public ConsoleChat(String dictionaryPath, Input reader, Output printer) {
-        dictionaryInit(dictionaryPath);
+    public ConsoleChat(String dictionaryPath, String logPath, Input reader, Output writer) {
+        dictionary = dictionaryInit(dictionaryPath);
         this.reader = reader;
-        this.printer = printer;
+        this.writer = writer;
+        logFile = new File(logPath);
     }
 
-    private void dictionaryInit(String dictionaryPath) {
+    private List<String>  dictionaryInit(String dictionaryPath) {
+        List<String> result = new ArrayList<>();
         try (BufferedReader read = new BufferedReader(new FileReader(dictionaryPath))) {
-            read.lines().forEach(dictionary::add);
+            read.lines().forEach(line -> result.add(line));
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return result;
     }
 
     public void init() {
         var input = "";
         var isAnswerHim = true;
-        while (!input.equals(exit)) {
-            input = reader.readInput();
-            if (input.equals(cont)) {
-                isAnswerHim = true;
-                continue;
-            } else if (input.equals(stop)) {
-                isAnswerHim = false;
-                continue;
+        try (PrintStream printer = new PrintStream(this.logFile)) {
+            while (!exit.equals(input)) {
+                input = reader.readInput();
+                printer.println(input);
+                if (cont.equals(input)) {
+                    isAnswerHim = true;
+                    continue;
+                } else if (stop.equals(input)) {
+                    isAnswerHim = false;
+                    continue;
+                }
+                if (isAnswerHim && !exit.equals(input)) {
+                    printer.println(answerHim());
+                }
             }
-            if (isAnswerHim && !input.equals(exit)) {
-                answerHim();
-            }
+            System.out.print(logFile);
+        } catch (Exception e) {
+            System.out.print(e.getLocalizedMessage());
         }
+
     }
 
-    private void answerHim() {
+
+    private String answerHim() {
         var index = rand.nextInt(dictionary.size());
-        this.printer.printLine(dictionary.get(index));
+        this.writer.printLine(dictionary.get(index));
+        return dictionary.get(index);
     }
 
     public class ScannerInput implements Input {
