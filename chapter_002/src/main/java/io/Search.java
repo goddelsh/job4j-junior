@@ -20,14 +20,24 @@ public class Search {
                 if (f.isDirectory()) {
                     queue.addAll(List.of(f.listFiles()));
                 } else {
-                    if (exts.stream().filter(str -> f.getName().contains(str)).collect(Collectors.toList()).size() > 0) {
+                    if (checkCoincidence(f.getName(), exts)) {
                         result.add(f);
                     }
                 }
             }
 
         }
+        return result;
+    }
 
+    private boolean checkCoincidence(String target, List<String> comparingList) {
+        var result = false;
+        for (String el : comparingList) {
+            if (target.contains(el)) {
+                result = true;
+                break;
+            }
+        }
         return result;
     }
 }
