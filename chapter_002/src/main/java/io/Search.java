@@ -33,7 +33,7 @@ public class Search {
     private boolean checkCoincidence(String target, List<String> comparingList) {
         var result = false;
         for (String el : comparingList) {
-            if (target.contains(el)) {
+            if (target.endsWith(el)) {
                 result = true;
                 break;
             }
