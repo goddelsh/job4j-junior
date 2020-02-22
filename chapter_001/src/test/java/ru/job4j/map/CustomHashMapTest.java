@@ -23,7 +23,7 @@ public class CustomHashMapTest {
         SimpleUnit unit2 = new SimpleUnit("unit");
         customMap.insert(unit1, 1);
         customMap.insert(unit2, 2);
-        System.out.print(customMap);
+        System.out.print("insertUniq" + customMap);
         assertThat(customMap.getElementCount(), is(2));
     }
 
@@ -32,7 +32,7 @@ public class CustomHashMapTest {
         SimpleUnit unit = new SimpleUnit("unit2");
         customMap.insert(unit, 1);
         customMap.insert(unit, 2);
-        System.out.print(customMap);
+        System.out.print("insertSame" + customMap);
         assertThat(customMap.getElementCount(), is(1));
     }
 
@@ -41,8 +41,9 @@ public class CustomHashMapTest {
         SimpleUnitHashCode unit1 = new SimpleUnitHashCode("unit");
         SimpleUnitHashCode unit2 = new SimpleUnitHashCode("unit");
         customMap.insert(unit1, 1);
+        System.out.print("insertWithOveriddedHashcodeExpectedCollision" + customMap);
         assertThat(customMap.insert(unit2, 1), is(false));
-        System.out.print(customMap);
+
     }
 
     @Test
