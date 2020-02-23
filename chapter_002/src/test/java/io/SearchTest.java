@@ -26,7 +26,16 @@ public class SearchTest {
         var fourthFile = File.createTempFile("ssss", ".rar", file.getParentFile().getParentFile());
 
         Search search = new Search();
-        var result = search.files(file.getParentFile().getParentFile().getPath(), List.of(".txt", ".rar"));
+        var result = search.files(file.getParentFile().getParentFile().getPath(), List.of(".txt", ".rar"),
+                (name, list) -> {
+                    var res = false;
+                    for (String el : list) {
+                        if (name.endsWith(el)) {
+                            res = true;
+                        }
+                    }
+                    return res;
+                });
         assertThat(result.size(), is(3));
         assertThat(result.get(0), is(fourthFile));
     }

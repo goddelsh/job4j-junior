@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.function.BiPredicate;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Search {
-    List<File> files(String parent, List<String> exts) {
+    List<File> files(String parent, List<String> exts, BiPredicate<String, List<String>> pred) {
         List<File> result = new ArrayList<File>();
         File file = new File(parent);
         Queue<File> queue = new LinkedList<>();
@@ -20,23 +22,12 @@ public class Search {
                 if (f.isDirectory()) {
                     queue.addAll(List.of(f.listFiles()));
                 } else {
-                    if (checkCoincidence(f.getName(), exts)) {
+                    if (pred.test(f.getName(), exts)) {
                         result.add(f);
                     }
                 }
             }
 
-        }
-        return result;
-    }
-
-    private boolean checkCoincidence(String target, List<String> comparingList) {
-        var result = false;
-        for (String el : comparingList) {
-            if (target.endsWith(el)) {
-                result = true;
-                break;
-            }
         }
         return result;
     }

@@ -19,7 +19,7 @@ public class Zip {
     }
 
     public void pack() {
-        List<File> files = new Search().files(this.path, List.of(""));
+        List<File> files = new Search().files(this.path, null, (name, list) -> true);
 
         try (ZipOutputStream zip = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(target)))) {
             for (File file : files) {
