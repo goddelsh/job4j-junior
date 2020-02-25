@@ -10,13 +10,13 @@ public class OraculServer {
 
     private final Socket socket;
 
-    public OraculServer(Socket socket) {
+    OraculServer(Socket socket) {
         this.socket = socket;
     }
 
-    public void init() {
+    void init() {
         String ask;
-        try(
+        try (
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
             do {
@@ -31,7 +31,7 @@ public class OraculServer {
                     out.println("1");
                     out.println("2");
                     out.println();
-                }else if (!"exit".equals(ask)){
+                } else if (!"exit".equals(ask)) {
                     out.println("Unknown command");
                     out.println();
                 }
@@ -42,11 +42,9 @@ public class OraculServer {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         try (Socket socket = new ServerSocket(31234).accept()) {
             new OraculServer(socket).init();
-        } catch (Exception e) {
-
         }
     }
 

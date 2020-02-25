@@ -1,45 +1,43 @@
 package net;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class OraculClient {
 
     private final Socket socket;
+    private final InputStream input;
+    private final PrintStream output;
 
-    public OraculClient(Socket socket) {
+    OraculClient(Socket socket, InputStream input, PrintStream output) {
         this.socket = socket;
+        this.input = input;
+        this.output = output;
     }
 
-    public void init() {
+    void init() throws Exception {
         try (
-        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-            Scanner console = new Scanner(System.in);
-            String str, command = "";
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+            Scanner console = new Scanner(input);
+            String command;
             do {
                 command = console.nextLine();
                 out.println(command);
-
-                while (!(str = in.readLine()).isEmpty()) {
-                    System.out.println(str);
+                var str = in.readLine();
+                while ((str != null) && !str.isEmpty()) {
+                    this.output.println(str);
+                    str = in.readLine();
                 }
-            }  while (!"exit".equals(command));
-        } catch (Exception e) {
-            System.out.println(e.getLocalizedMessage());
+            } while (!"exit".equals(command));
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         try (Socket socket = new Socket(InetAddress.getByName("127.0.0.1"), 31234)) {
-                new OraculClient(socket).init();
-        } catch (Exception ex) {
-
+            new OraculClient(socket, System.in, System.out).init();
         }
     }
 
