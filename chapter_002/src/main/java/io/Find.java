@@ -86,7 +86,7 @@ public class Find {
                     logFile = ++index < args.length ? args[index++] : "";
                     break;
                 default:
-                    System.out.println("Unknown params");
+                    System.out.println("Unknown args");
                     errors++;
                     break;
             }
@@ -94,9 +94,9 @@ public class Find {
 
         if ((errors == 0) && (path != null) && (logFile != null)) {
             new Find(path, targetName, searchType < 0 ? 2 : searchType, logFile);
-            System.out.println("Complete.");
+            System.out.println("Completed.");
         } else {
-            System.out.printf("Problems with argements. Errors %d \n Path for search %s \n Lof file %s \n",
+            System.out.printf("Problems with arguments. Errors %d \n Target path %s \n Log file %s \n",
                     errors, path, logFile);
             Find.printHelp();
         }
