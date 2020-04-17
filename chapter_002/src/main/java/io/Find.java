@@ -1,5 +1,7 @@
 package io;
 
+import io.utils.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -10,19 +12,17 @@ public class Find {
     private int count;
 
 
-    private Find(String path, String targetName, int searchType, String logFile) {
-        if (writeToLog(getFileList(path, targetName, searchType), logFile)) {
-            System.out.printf("%d file founded. Logged to %s", count, logFile);
+    private Find(Args args) {
+        if (writeToLog(getFileList(args), args.getLog())) {
+            System.out.printf("%d file founded. Logged to %s", count, args.getLog());
         }
     }
 
-    private List<File> getFileList(String path, String targetName, int searchType) {
-        return new Search().files(path, List.of(targetName), (name, list) -> {
+    private List<File> getFileList(Args args) {
+        return new Search().files(args.getPath(), List.of(args.getTarget()), (name, list) -> {
             var res = false;
             for (String el : list) {
-                if (((searchType == 0)  &&  name.matches(el.replace(".", "\\.").replace("*", ".*")))
-                        || ((searchType == 1) && name.equals(el))
-                        || ((searchType == 2) && name.contains(el))) {
+                if (args.comparing(name, el)) {
                     res = true;
                 }
             }
@@ -57,10 +57,10 @@ public class Find {
 
         String path = null;
         String targetName = "";
-        int searchType = -1;
         String logFile = null;
         int errors = 0;
 
+        SearchType searchType = null;
 
         while (index < args.length) {
             switch (args[index]) {
@@ -71,15 +71,27 @@ public class Find {
                     targetName = ++index < args.length ? args[index++] : "";
                     break;
                 case "-m":
-                    searchType = searchType < 0 ? 2 : errors++;
+                    if (searchType == null) {
+                        searchType = new MaskSearchType();
+                    } else {
+                        errors++;
+                    }
                     index++;
                     break;
                 case "-f":
-                    searchType = searchType < 0 ? 1 : errors++;
+                    if (searchType == null) {
+                        searchType = new NameSearchType();
+                    } else {
+                        errors++;
+                    }
                     index++;
                     break;
                 case "-r":
-                    searchType = searchType < 0 ? 0 : errors++;
+                    if (searchType == null) {
+                        searchType = new RegexSearchType();
+                    } else {
+                        errors++;
+                    }
                     index++;
                     break;
                 case "-o":
@@ -93,7 +105,7 @@ public class Find {
         }
 
         if ((errors == 0) && (path != null) && (logFile != null)) {
-            new Find(path, targetName, searchType < 0 ? 2 : searchType, logFile);
+            new Find(new Args(searchType, path, targetName, logFile));
             System.out.println("Complete.");
         } else {
             System.out.printf("Problems with argements. Errors %d \n Path for search %s \n Lof file %s \n",
