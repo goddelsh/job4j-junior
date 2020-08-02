@@ -1,7 +1,7 @@
 select cc.name, bb.name,  ee.name, gg.name from cars cc 
-left outer join engines ee on ee.id = cc.engine 
-left outer join bodies bb on bb.id = cc.body
-left outer join gearboxes gg on gg.id = cc.gearbox
+inner join engines ee on ee.id = cc.engine 
+inner join bodies bb on bb.id = cc.body
+inner join gearboxes gg on gg.id = cc.gearbox
 
 select cv.name from engines cv
 left join cars cr on cr.engine = cv.id

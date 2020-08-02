@@ -16,7 +16,7 @@ CREATE TABLE gearboxes (
 CREATE TABLE cars (
 	id serial primary key,
 	name varchar(32),
-	body int references bodies(id),
-	gearbox int references gearboxes(id), 
-	engine int references engines(id)	
+	body int references bodies(id) not null,
+	gearbox int references gearboxes(id) not null, 
+	engine int references engines(id) not null	
 );
