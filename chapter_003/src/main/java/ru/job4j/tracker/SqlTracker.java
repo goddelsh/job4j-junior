@@ -33,10 +33,15 @@ public class SqlTracker implements Store {
 
     @Override
     public Item add(Item item) {
-        try (PreparedStatement pstmt = cn.prepareStatement("INSERT INTO items (name, desciption) VALUES (?, ?)")){
+        try (PreparedStatement pstmt = cn.prepareStatement("INSERT INTO items (name, desciption) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS)){
             pstmt.setString(1, item.getName());
             pstmt.setString(2, item.getDesciption());
             pstmt.execute();
+            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    item.setId(generatedKeys.getString(1));
+            }
+        }
         } catch (SQLException e) {
             e.printStackTrace();
         }
