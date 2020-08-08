@@ -41,7 +41,6 @@ public class PrintAllActionTest {
         PrintStream def = System.out;
         System.setOut(new PrintStream(out));
         Store tracker = new SqlTracker(ConnectionRollback.create(this.init()));
-        tracker.init();
         Item item = new Item("fix bug");
         tracker.add(item);
         PrintAllAction act = new PrintAllAction(1, "prin all items");
