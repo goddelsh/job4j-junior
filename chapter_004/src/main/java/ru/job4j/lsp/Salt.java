@@ -11,6 +11,5 @@ public class Salt extends Food {
         setExpireDate(expireDate);
         setPrice(price);
         setDisscount(disscount);
-        System.out.println("name " + name + "create "+ createDate + "expire " + expireDate);
     }
 }
