@@ -1,7 +1,12 @@
 package ru.job4j.isp;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SimpleItem implements Item {
+
+    private List<Item> children;
 
     private String name;
 
@@ -17,6 +22,7 @@ public class SimpleItem implements Item {
 
     public void setAction(ItemLogic action) {
         this.action = action;
+        children = new ArrayList<>();
     }
 
 
@@ -25,10 +31,6 @@ public class SimpleItem implements Item {
         return name;
     }
 
-    @Override
-    public int compareTo(Item o) {
-        return this.name.compareTo(o.getName());
-    }
 
     @Override
     public void doAction() {
@@ -37,4 +39,13 @@ public class SimpleItem implements Item {
         }
     }
 
+    @Override
+    public void addChild(Item item) {
+        children.add(item);
+    }
+
+    @Override
+    public List<Item> getChildren() {
+        return children;
+    }
 }

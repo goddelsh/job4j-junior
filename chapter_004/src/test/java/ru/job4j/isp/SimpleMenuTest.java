@@ -1,6 +1,5 @@
 package ru.job4j.isp;
 
-//import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.After;
 import org.junit.Before;
@@ -34,15 +33,15 @@ public class SimpleMenuTest {
 
 
         menu.addItem("Задача 1", null, null);
-        menu.addItem("Задача 2", null, null);
         menu.addItem("Задача 1.1", "Задача 1", null);
-        menu.addItem("Задача 2.1", "Задача 2", null);
+        menu.addItem("Задача 1.2", "Задача 1", null);
+        menu.addItem("Задача 1.1.1", "Задача 1.1", null);
 
         menu.printMenu();
         StringBuilder expected = new StringBuilder("Задача 1").append(System.lineSeparator())
-                .append("Задача 1.1").append(System.lineSeparator())
-                .append("Задача 2").append(System.lineSeparator())
-                .append("Задача 2.1").append(System.lineSeparator());
+                .append("---Задача 1.1").append(System.lineSeparator())
+                .append("------Задача 1.1.1").append(System.lineSeparator())
+                .append("---Задача 1.2").append(System.lineSeparator());
 
         assertThat(new String(out.toByteArray()), is(expected.toString()));
     }
@@ -53,16 +52,14 @@ public class SimpleMenuTest {
 
 
         menu.addItem("Задача 1", null, null);
-        menu.addItem("Задача 2", null, null);
-        menu.addItem("Задача 3", null, null);
         menu.addItem("Задача 1.1", "Задача 1", null);
         menu.addItem("Задача 1.2", "Задача 1", null);
         menu.addItem("Задача 1.3", "Задача 1", null);
-        menu.addItem("Задача 2.1", "Задача 2", null);
+        menu.addItem("Задача 1.2.1", "Задача 1.2", null);
 
-        assertThat(menu.findByName("Задача 3").getName(), is("Задача 3"));
-        assertThat(menu.findByName("Задача 3").getName(), is("Задача 3"));
-        assertThat(menu.findByName("Задача 2.1").getName(), is("Задача 2.1"));
+        assertThat(menu.findByName("Задача 1").getName(), is("Задача 1"));
+        assertThat(menu.findByName("Задача 1.1").getName(), is("Задача 1.1"));
+        assertThat(menu.findByName("Задача 1.2.1").getName(), is("Задача 1.2.1"));
 
     }
 
@@ -78,9 +75,8 @@ public class SimpleMenuTest {
         };
 
         menu.addItem("Задача 1", null, action);
-        menu.addItem("Задача 2", null, action);
         menu.addItem("Задача 1.1", "Задача 1", action);
-        menu.addItem("Задача 2.1", "Задача 2", action);
+        menu.addItem("Задача 1.2", "Задача 1", action);
 
 
         menu.findByName("Задача 1.1").doAction();
