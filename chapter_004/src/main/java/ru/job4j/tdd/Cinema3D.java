@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class Cinema3D implements Cinema {
+
     @Override
-    public Ticket buy(Account account, int i, int i1, Calendar date) {
+    public Ticket buy(Account account, int row, int col, Session session) {
         return null;
     }
 
@@ -16,7 +17,7 @@ public class Cinema3D implements Cinema {
     }
 
     @Override
-    public void add(Session3D session3D) {
+    public void add(Session session) {
 
     }
 
@@ -26,7 +27,8 @@ public class Cinema3D implements Cinema {
     }
 
     @Override
-    public Ticket findTicket(Account account, int i, int i1, Calendar date) {
+    public Ticket findTicket(Account account, int row, int col, Session session) {
         return null;
     }
+
 }

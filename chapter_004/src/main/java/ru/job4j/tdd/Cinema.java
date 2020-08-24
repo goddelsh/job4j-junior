@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public interface Cinema {
-    Ticket buy(Account account, int i, int i1, Calendar date);
+    Ticket buy(Account account, int row, int col, Session session);
 
     boolean refund(Ticket ticket);
 
-    void add(Session3D session3D);
+    void add(Session session);
 
     List<Session> find(Predicate<Boolean> predicate);
 
-    Ticket findTicket(Account account, int i, int i1, Calendar date);
+    Ticket findTicket(Account account, int row, int col, Session session);
 }
