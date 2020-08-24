@@ -24,7 +24,7 @@ public class GeneratorTest {
     }
 
     @Ignore
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void checkWithIllegallArguments() {
         var result = new Generator() {
                     @Override
@@ -60,7 +60,7 @@ public class GeneratorTest {
     }
 
     @Ignore
-    @Test (expected = IllegalStateException.class)
+    @Test
     public void checkWithRepeatsInTemplate() {
         assertThat(new Generator() {
                     @Override
