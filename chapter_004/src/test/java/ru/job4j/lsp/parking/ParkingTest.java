@@ -8,7 +8,6 @@ import static org.junit.Assert.*;
 
 public class ParkingTest  {
 
-    @Ignore
     @Test
     public void overParkingTest() {
         Parking parking = new SimpleParking(4, 1);
@@ -22,14 +21,13 @@ public class ParkingTest  {
 
         parking.park(truck1);
         assertThat(parking.getCarsFreePlaces(), is(3));
-        assertThat(parking.getCarsFreePlaces(), is(0));
+        assertThat(parking.getTrucksFreePlaces(), is(0));
 
         parking.park(truck2);
         assertThat(parking.getCarsFreePlaces(), is(1));
-        assertThat(parking.getCarsFreePlaces(), is(0));
+        assertThat(parking.getTrucksFreePlaces(), is(0));
     }
 
-    @Ignore
     @Test (expected = IllegalArgumentException.class)
     public void testForUniqueVechile() {
         Parking parking = new SimpleParking(4, 1);
@@ -38,7 +36,6 @@ public class ParkingTest  {
         parking.park(car);
     }
 
-    @Ignore
     @Test (expected = IllegalArgumentException.class)
     public void testDouleUnparking() {
         Parking parking = new SimpleParking(4, 1);
@@ -48,7 +45,6 @@ public class ParkingTest  {
         parking.unpark(car.getId());
     }
 
-    @Ignore
     @Test
     public void testGetFreePlaces() {
         Parking parking = new SimpleParking(4, 1);
