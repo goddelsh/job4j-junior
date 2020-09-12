@@ -11,9 +11,9 @@ public class ParkingTest  {
     @Test
     public void overParkingTest() {
         Parking parking = new SimpleParking(4, 1);
-        Vehicle car = new Car();
-        Vehicle truck1 = new Truck(2);
-        Vehicle truck2 = new Truck(2);
+        Vehicle car = new Car(SimpleParking.getParkingId());
+        Vehicle truck1 = new Truck(SimpleParking.getParkingId(), 2);
+        Vehicle truck2 = new Truck(SimpleParking.getParkingId(), 2);
 
         parking.park(car);
         assertThat(parking.getCarsFreePlaces(), is(3));
@@ -31,7 +31,7 @@ public class ParkingTest  {
     @Test (expected = IllegalArgumentException.class)
     public void testForUniqueVechile() {
         Parking parking = new SimpleParking(4, 1);
-        Vehicle car = new Car();
+        Vehicle car = new Car(SimpleParking.getParkingId());
         parking.park(car);
         parking.park(car);
     }
@@ -39,7 +39,7 @@ public class ParkingTest  {
     @Test (expected = IllegalArgumentException.class)
     public void testDouleUnparking() {
         Parking parking = new SimpleParking(4, 1);
-        Vehicle car = new Car();
+        Vehicle car = new Car(SimpleParking.getParkingId());
         parking.park(car);
         parking.unpark(car.getId());
         parking.unpark(car.getId());
@@ -48,8 +48,8 @@ public class ParkingTest  {
     @Test
     public void testGetFreePlaces() {
         Parking parking = new SimpleParking(4, 1);
-        Vehicle car = new Car();
-        Vehicle truck1 = new Truck(2);
+        Vehicle car = new Car(SimpleParking.getParkingId());
+        Vehicle truck1 = new Truck(SimpleParking.getParkingId(), 2);
 
         parking.park(car);
         assertThat(parking.getCarsFreePlaces(), is(3));

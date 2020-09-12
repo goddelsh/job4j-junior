@@ -2,13 +2,12 @@ package ru.job4j.lsp.parking;
 
 public class Car implements Vehicle {
 
-
     final private long id;
     final private int size;
 
-    public Car() {
+    public Car(long id) {
         this.size = 1;
-        this.id = SimpleParking.getParkingId();
+        this.id = id;
     }
 
 
