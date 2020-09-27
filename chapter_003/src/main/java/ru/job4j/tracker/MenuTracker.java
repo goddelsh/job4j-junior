@@ -25,6 +25,7 @@ public class MenuTracker {
         actions.add(new FindByIdAction(4, "find item by id"));
         actions.add(new FindByNameAction(5, "find item by name"));
         actions.add(new ExitAction(6, "exit"));
+        actions.add(new CreateUselessActions(7, "Create useless objects"));
     }
 
     public void setActions(List<UserAction> actions) {

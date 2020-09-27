@@ -28,6 +28,10 @@ public class Demonstration {
 
         }
 
+    public static class EmptyClass {
+
+        }
+
     /**
      * Демонстрация работы сборщика при параметрах jvm -Xmx4m
      * создаётся обьект object тестового класса для демонстрации
@@ -41,7 +45,7 @@ public class Demonstration {
 
     public static void main(String[] args) {
         info();
-        var object = new TestUnit("Test Zero");
+        var object = new EmptyClass(); //new TestUnit("Test Zero");
         info();
         object = null;
         TestUnit[] arr = new TestUnit[17000];
