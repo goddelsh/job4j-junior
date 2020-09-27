@@ -26,6 +26,7 @@ public class StartUITest {
                 .add("4 : find item by id")
                 .add("5 : find item by name")
                 .add("6 : exit")
+                .add("7 : Create useless objects")
                 .toString();
         assertThat(result.toString(), is(expected));
     }

@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 
-public class CreateUselessActions extends BaseAction{
+public class CreateUselessActions extends BaseAction {
 
     static private ArrayList<Item> uselesItems;
 
