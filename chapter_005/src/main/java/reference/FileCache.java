@@ -19,12 +19,14 @@ public class FileCache {
         if (cacheMap.containsKey(path)) {
             result = cacheMap.get(path).getObject();
             if (result == null) {
-                cacheMap.get(path).putObject(this.loadFile(path));
+                String file = this.loadFile(path);
+                cacheMap.get(path).putObject(file);
                 result = cacheMap.get(path).getObject();
             }
         } else {
             var cacheObject = new Cache<String>();
-            cacheObject.putObject(this.loadFile(path));
+            String file = this.loadFile(path);
+            cacheObject.putObject(file);
             cacheMap.put(path, cacheObject);
             result = cacheObject.getObject();
         }
