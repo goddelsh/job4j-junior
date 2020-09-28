@@ -18,6 +18,10 @@ public class FileCache {
         String result;
         if (cacheMap.containsKey(path)) {
             result = cacheMap.get(path).getObject();
+            if (result == null) {
+                cacheMap.get(path).putObject(this.loadFile(path));
+                result = cacheMap.get(path).getObject();
+            }
         } else {
             var cacheObject = new Cache<String>();
             cacheObject.putObject(this.loadFile(path));
@@ -26,6 +30,7 @@ public class FileCache {
         }
         return result;
     }
+
 
 
     String loadFile(String path) {
