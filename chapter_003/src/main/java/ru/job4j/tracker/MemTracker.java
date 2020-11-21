@@ -4,19 +4,25 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class MemTracker {
+public class MemTracker implements Store {
     /**
      * Массив для хранение заявок.
      */
     private final ArrayList<Item> items = new ArrayList<>();
 
+    int id = 0;
+
+    @Override
+    public void init() {
+
+    }
 
     /**
      * Метод реализаущий добавление заявки в хранилище
      * @param item новая заявка
      */
     public Item add(Item item) {
-        item.setId(this.generateId());
+        item.setId(String.valueOf(id++));
         this.items.add(item);
         return item;
     }
@@ -89,5 +95,10 @@ public class MemTracker {
     private String generateId() {
         Random rm = new Random();
         return String.valueOf(rm.nextLong() + System.currentTimeMillis());
+    }
+
+    @Override
+    public void close() throws Exception {
+
     }
 }
