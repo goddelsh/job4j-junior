@@ -10,7 +10,7 @@ public class FindByIdAction extends BaseAction  {
     @Override
     public boolean execute(Input input, Store tracker) {
         System.out.println("Enter id: ");
-        String id = input.askStr("");
+        int id = Integer.parseInt(input.askStr(""));
         Item item = tracker.findById(id);
         if (item != null) {
             System.out.println("Founded. id: " + item.getId() + " name: " + item.getName());

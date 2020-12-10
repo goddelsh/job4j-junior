@@ -1,21 +1,28 @@
 package ru.job4j.tracker;
 
-import java.util.Random;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "items")
 public class Item {
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String desciption;
+
+    public Item() {
+    }
 
     public Item(String name) {
         this.setName(name);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
