@@ -18,7 +18,7 @@ public class HibernateRun {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Item newItem = new Item("Learn Hibernate");
             newItem.setDesciption("Some text");
-            newItem.setCreated(new Timestamp(System.nanoTime()));
+            newItem.setCreated(new Timestamp(System.currentTimeMillis()));
             Item item = create(newItem, sf);
             System.out.println(item);
             item.setName("Learn Hibernate 6.");

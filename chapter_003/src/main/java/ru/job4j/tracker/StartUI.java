@@ -27,7 +27,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Input input = new ConsoleInput();
-        Store tracker = new SqlTracker();
+        Store tracker = new HbmTracker();
         tracker.init();
         new StartUI(input, tracker, System.out::println).init();
     }
