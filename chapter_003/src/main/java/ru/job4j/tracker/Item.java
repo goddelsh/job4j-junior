@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "items")
@@ -10,6 +11,15 @@ public class Item {
     private int id;
     private String name;
     private String desciption;
+    private Timestamp created;
+
+    public Timestamp getCreated() {
+        return created;
+    }
+
+    public void setCreated(Timestamp created) {
+        this.created = created;
+    }
 
     public Item() {
     }
