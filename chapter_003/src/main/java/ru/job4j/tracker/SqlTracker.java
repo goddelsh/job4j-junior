@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.function.Consumer;
 
 public class SqlTracker implements Store {
     private Connection cn;
@@ -99,6 +100,21 @@ public class SqlTracker implements Store {
             e.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public void findAll(Consumer<Item> consumer) {
+        try (Statement pstmt = cn.createStatement()) {
+            var resultSet = pstmt.executeQuery("SELECT id, name, desciption FROM items");
+            while (resultSet.next()) {
+                var item = new Item(resultSet.getString("name"));
+                item.setId(resultSet.getInt("id"));
+                item.setDesciption(resultSet.getString("desciption"));
+                consumer.accept(item);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

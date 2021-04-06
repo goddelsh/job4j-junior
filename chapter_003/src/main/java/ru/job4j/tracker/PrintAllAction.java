@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
 
 public class PrintAllAction extends BaseAction  {
     public PrintAllAction(int key, String name) {
@@ -10,13 +12,10 @@ public class PrintAllAction extends BaseAction  {
 
     @Override
     public boolean execute(Input input, Store tracker) {
-        List<Item> items = tracker.findAll();
-        if (items.size() > 0) {
-            int index = 0;
-            for (Item item : items) {
-                System.out.println(index++ + ". id: " + item.getId() + " name: " + item.getName());
-            }
-        } else {
+        final AtomicInteger aInteger = new AtomicInteger(0);
+        tracker.findAll(item -> System.out.println(aInteger.incrementAndGet() + ". id: " + item.getId() + " name: " + item.getName()));
+
+        if (aInteger.get() == 0) {
             System.out.println("Items list is empty");
         }
         return true;

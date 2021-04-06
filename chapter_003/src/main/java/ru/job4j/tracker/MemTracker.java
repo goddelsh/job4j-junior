@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.function.Consumer;
 
 
 public class MemTracker implements Store {
@@ -65,6 +66,11 @@ public class MemTracker implements Store {
 
     public ArrayList<Item> findAll() {
         return this.items;
+    }
+
+    @Override
+    public void findAll(Consumer<Item> consumer) {
+
     }
 
 

@@ -7,6 +7,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class HbmTracker implements Store {
     private final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
@@ -69,6 +70,11 @@ public class HbmTracker implements Store {
         session.getTransaction().commit();
         session.close();
         return result;
+    }
+
+    @Override
+    public void findAll(Consumer<Item> consumer) {
+
     }
 
     @Override
